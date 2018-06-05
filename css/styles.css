@@ -47,6 +47,7 @@ a {
 a:hover, a:focus {
 	color: #3397db;
 	text-decoration: none;
+	outline: 3px dotted blue;
 }
 a img {
 	border: none 0px #fff;
@@ -66,15 +67,32 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 }
 #footer {
   background-color: #444;
-  color: #aaa;
+  color: #ddd;
   font-size: 8pt;
   letter-spacing: 1px;
   padding: 25px 0;
   text-align: center;
   text-transform: uppercase;
 }
+
+.skiplink {
+	position: absolute;
+	left: -9999px;
+	overflow: hidden;
+}
+
+.skiplink:focus {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	overflow: visible;
+	z-index: 1001;
+}
+
 /* ====================== Navigation ====================== */
 nav {
+	display: flex;
   width: 100%;
   height: 80px;
   background-color: #252831;
@@ -131,7 +149,7 @@ nav h1 a {
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
-  background-color: #3397DB;
+  background-color: #1f76b1;
   align-items: center;
   min-height: 90px;
   margin: 0 auto;
@@ -155,6 +173,10 @@ nav h1 a {
   margin: 5px 20px;
   padding: 0 10px;
   width: 200px;
+}
+
+.filter-options select:focus {
+	outline: 3px dotted orange;
 }
 
 /* ====================== Restaurant Listing ====================== */
@@ -186,7 +208,7 @@ nav h1 a {
   min-height: 228px;
 }
 #restaurants-list li h1 {
-  color: #f18200;
+  color: #b15f00;
   font-family: Arial,sans-serif;
   font-size: 14pt;
   font-weight: 200;
@@ -205,6 +227,7 @@ nav h1 a {
   color: #fff;
   display: inline-block;
   font-size: 10pt;
+  font-weight: bold;
   margin: 15px 0 0;
   padding: 8px 30px 10px;
   text-align: center;
@@ -342,7 +365,7 @@ header {
 		padding: 0 20px;
 	}
 
-		#restaurant-address {
+	#restaurant-address {
 		font-size: 18px;
 	}
 
@@ -350,7 +373,13 @@ header {
 		font-size: 16px;
 	}
 
-}
+	.filter-options h2 {
+  font-size: 1.25rem;
+	}
+
+	.filter-options select {
+	font-size: 1.1rem;
+	}
 
 @media screen and (min-width: 1200px) {
 
@@ -380,6 +409,10 @@ header {
 
 	#reviews-list p, #restaurant-hours td {
 		font-size: 18px;
+	}
+
+	.filter-options h2 {
+  	padding-bottom: 5px;
 	}
 
 }
